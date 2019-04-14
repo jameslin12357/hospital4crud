@@ -621,6 +621,7 @@ input.input100 {
 
 .invalid-feedback {
   display: block!important;
+  margin-bottom: 16px!important;
 }
 
 .flex-end {
@@ -637,4 +638,11 @@ input.input100 {
 
 .overflow-x {
   overflow-x: scroll!important;
+}
+
+.success-alert {
+  position: fixed;
+  width: 150px;
+  top: 60px;
+  right: 30px;
 }

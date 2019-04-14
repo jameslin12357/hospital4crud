@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {{$title}}
+    @include('success')
     <div class="container pt-100">
     <div class="row">
         <div class="col-md-3">
@@ -83,7 +83,7 @@
                 <th scope="col">Date Created</th>
                 <th scope="col">Date Edited</th>
                 @if (Auth::user()->level === 1)
-                    <th scope="col"><a href="/addresses/new" class="btn btn-outline-secondary">Create</a></th>
+                    <th scope="col"><a href="/addresses/create" class="btn btn-outline-secondary">Create</a></th>
                 @endif
 
             </tr>
@@ -105,7 +105,9 @@
                             <a href="/addresses/{{ $address->id }}/edit" class="btn btn-outline-secondary">Edit</a>
                         </td>
                         <td>
-                            <form action="/addresses/{{ $address->id }}?_method=DELETE" method="post">
+                            <form action="/addresses/{{ $address->id }}" method="post">
+                                @csrf
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-outline-secondary">Delete</button>
                             </form>
                         </td>

@@ -1,0 +1,68 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="container pt-100">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <h3 class="login-heading mb-4 text-center">Edit address</h3>
+                <form action="/addresses/{{ $address[0]->id }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Building number" value="{{ old( 'building_number', $address[0]->building_number) }}" name="building_number" >
+                    </div>
+                    @if ($errors->has('building_number'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('building_number') }}</strong>
+                                    </span>
+                    @endif
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Street" value="{{ old( 'street', $address[0]->street) }}" name="street" >
+                    </div>
+                    @if ($errors->has('street'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('street') }}</strong>
+                                    </span>
+                    @endif
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="City" value="{{ old( 'city', $address[0]->city) }}" name="city" >
+                    </div>
+                    @if ($errors->has('city'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                    @endif
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="State" value="{{ old( 'state', $address[0]->state) }}" name="state" >
+                    </div>
+                    @if ($errors->has('state'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                    @endif
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Country" value="{{ old( 'country', $address[0]->country) }}" name="country" >
+                    </div>
+                    @if ($errors->has('country'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                    @endif
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Zip" value="{{ old( 'zip', $address[0]->zip) }}" name="zip" >
+                    </div>
+                    @if ($errors->has('zip'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('zip') }}</strong>
+                                    </span>
+                    @endif
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+@endsection
