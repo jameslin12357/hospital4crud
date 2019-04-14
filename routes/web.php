@@ -15,3 +15,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('addresses', 'AddressController');
+Route::resource('doctors', 'DoctorController');
+Route::resource('genders', 'GenderController');
+Route::resource('insurances', 'InsuranceController');
+Route::resource('medications', 'MedicationController');
+Route::resource('patients', 'PatientController');
+Route::resource('procedures', 'ProcedureController');
+Route::resource('visits', 'VisitController');
+Route::resource('visitsmedications', 'VisitsmedicationsController');
+

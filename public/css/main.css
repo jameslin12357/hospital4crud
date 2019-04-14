@@ -646,3 +646,7 @@ input.input100 {
   top: 60px;
   right: 30px;
 }
+
+.active-tab {
+  background: lightgray;
+}

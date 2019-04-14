@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         $addresses = DB::select('SELECT * FROM addresses ORDER BY date_created DESC');
         $count = DB::table('addresses')->count();
-//        dd($addresses);
         $data = array(
             'addresses' => $addresses,
             'count' => $count,

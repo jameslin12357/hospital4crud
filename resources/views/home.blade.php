@@ -9,56 +9,70 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col" class="active"><a href="/">Addresses</a></th>
+                    <th scope="col" class="active-tab"><a href="/">Addresses</a></th>
+                    <!--<th scope="col">First</th>-->
+                    <!--<th scope="col">Last</th>-->
+                    <!--<th scope="col">Handle</th>-->
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr>
-                    <th scope="row"><a href="/authors">Authors</a></th>
-                </tr>
-                <tr>
-                    <th scope="row"><a href="/books">Books</a></th>
-                </tr>
-                <tr>
-                    <th scope="row"><a href="/bookslenders">Bookslenders</a></th>
-                    <!--<td>Larry</td>-->
-                    <!--<td>the Bird</td>-->
-                    <!--<td>@twitter</td>-->
-                </tr>
-                <tr>
-                    <th scope="row"><a href="/categories">Categories</a></th>
-                    <!--<td>Larry</td>-->
-                    <!--<td>the Bird</td>-->
-                    <!--<td>@twitter</td>-->
+                    <th scope="row"><a href="/doctors">Doctors</a></th>
+                    <!--<td>Mark</td>-->
+                    <!--<td>Otto</td>-->
+                    <!--<td>@mdo</td>-->
                 </tr>
                 <tr>
                     <th scope="row"><a href="/genders">Genders</a></th>
+                    <!--<td>Jacob</td>-->
+                    <!--<td>Thornton</td>-->
+                    <!--<td>@fat</td>-->
+                </tr>
+                <tr>
+                    <th scope="row"><a href="/insurances">Insurances</a></th>
                     <!--<td>Larry</td>-->
                     <!--<td>the Bird</td>-->
                     <!--<td>@twitter</td>-->
                 </tr>
                 <tr>
-                    <th scope="row"><a href="/lenders">Lenders</a></th>
+                    <th scope="row"><a href="/medications">Medications</a></th>
                     <!--<td>Larry</td>-->
                     <!--<td>the Bird</td>-->
                     <!--<td>@twitter</td>-->
                 </tr>
                 <tr>
-                    <th scope="row"><a href="/publishers">Publishers</a></th>
+                    <th scope="row"><a href="/patients">Patients</a></th>
                     <!--<td>Larry</td>-->
                     <!--<td>the Bird</td>-->
                     <!--<td>@twitter</td>-->
                 </tr>
                 <tr>
-                    <th scope="row"><a href="/staffs">Staffs</a></th>
+                    <th scope="row"><a href="/procedures">Procedures</a></th>
+                    <!--<td>Larry</td>-->
+                    <!--<td>the Bird</td>-->
+                    <!--<td>@twitter</td>-->
+                </tr>
+                <tr>
+                    <th scope="row"><a href="/visits">Visits</a></th>
+                    <!--<td>Larry</td>-->
+                    <!--<td>the Bird</td>-->
+                    <!--<td>@twitter</td>-->
+                </tr>
+                <tr>
+                    <th scope="row"><a href="/visitsmedications">Visitsmedications</a></th>
+                    <!--<td>Larry</td>-->
+                    <!--<td>the Bird</td>-->
+                    <!--<td>@twitter</td>-->
+                </tr>
+                <tr>
+                    <th scope="row"><a href="/visitsprocedures">Visitsprocedures</a></th>
                     <!--<td>Larry</td>-->
                     <!--<td>the Bird</td>-->
                     <!--<td>@twitter</td>-->
                 </tr>
                 </tbody>
             </table>
-
         </div>
         <div class="col-md-9 ofx-s overflow-x">
             <h5>{{ $count }} Rows</h5>
