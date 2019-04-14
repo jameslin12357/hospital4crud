@@ -630,3 +630,11 @@ input.input100 {
 .mt-20 {
   margin-top: 20px!important;
 }
+
+.pt-100 {
+  padding-top: 70px!important;
+}
+
+.overflow-x {
+  overflow-x: scroll!important;
+}

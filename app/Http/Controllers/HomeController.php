@@ -25,8 +25,13 @@ class HomeController extends Controller
     public function index()
     {
         $addresses = DB::select('SELECT * FROM addresses ORDER BY date_created DESC');
-        $count = DB::select('SELECT count(*) as count FROM addresses');
-        error_log('Some message here.');
-        return view('home')->with('title', 'Dashboard');
+        $count = DB::table('addresses')->count();
+//        dd($addresses);
+        $data = array(
+            'addresses' => $addresses,
+            'count' => $count,
+            'title' => 'Dashboard'
+           );
+        return view('home')->with($data);
     }
 }
