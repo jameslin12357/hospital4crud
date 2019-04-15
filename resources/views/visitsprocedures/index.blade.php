@@ -60,13 +60,13 @@
                         <!--<td>@twitter</td>-->
                     </tr>
                     <tr>
-                        <th scope="row" class="active-tab"><a href="/visitsmedications">Visitsmedications</a></th>
+                        <th scope="row"><a href="/visitsmedications">Visitsmedications</a></th>
                         <!--<td>Larry</td>-->
                         <!--<td>the Bird</td>-->
                         <!--<td>@twitter</td>-->
                     </tr>
                     <tr>
-                        <th scope="row"><a href="/visitsprocedures">Visitsprocedures</a></th>
+                        <th scope="row" class="active-tab"><a href="/visitsprocedures">Visitsprocedures</a></th>
                         <!--<td>Larry</td>-->
                         <!--<td>the Bird</td>-->
                         <!--<td>@twitter</td>-->
@@ -89,29 +89,29 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Visit Id</th>
-                        <th scope="col">Medication Id</th>
+                        <th scope="col">Procedure Id</th>
                         <th scope="col">Date Created</th>
                         <th scope="col">Date Edited</th>
                         @if (Auth::user()->level === 1)
-                            <th scope="col"><a href="/visitsmedications/create" class="btn btn-outline-secondary">Create</a></th>
+                            <th scope="col"><a href="/visitsprocedures/create" class="btn btn-outline-secondary">Create</a></th>
                         @endif
 
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($visitsmedications as $visitmedication)
+                    @foreach ($visitsprocedures as $visitprocedure)
                         <tr>
-                            <td>{{ $visitmedication->id }}</td>
-                            <td>{{ $visitmedication->visit_id }}</td>
-                            <td>{{ $visitmedication->medication_id }}</td>
-                            <td>{{ $visitmedication->date_created }}</td>
-                            <td>{{ $visitmedication->date_edited }}</td>
+                            <td>{{ $visitprocedure->id }}</td>
+                            <td>{{ $visitprocedure->visit_id }}</td>
+                            <td>{{ $visitprocedure->procedure_id }}</td>
+                            <td>{{ $visitprocedure->date_created }}</td>
+                            <td>{{ $visitprocedure->date_edited }}</td>
                             @if (Auth::user()->level === 1)
                                 <td>
-                                    <a href="/visitsmedications/{{ $visitmedication->id }}/edit" class="btn btn-outline-secondary">Edit</a>
+                                    <a href="/visitsprocedures/{{ $visitprocedure->id }}/edit" class="btn btn-outline-secondary">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="/visitsmedications/{{ $visitmedication->id }}" method="post">
+                                    <form action="/visitsprocedures/{{ $visitprocedure->id }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-outline-secondary">Delete</button>

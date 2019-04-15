@@ -23,4 +23,5 @@ Route::resource('patients', 'PatientController');
 Route::resource('procedures', 'ProcedureController');
 Route::resource('visits', 'VisitController');
 Route::resource('visitsmedications', 'VisitsmedicationsController');
-
+Route::resource('visitsprocedures', 'VisitsproceduresController');
+Route::resource('users', 'UserController');

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-class VisitsmedicationsController extends Controller
+use Illuminate\Http\Request;
+
+class VisitsproceduresController extends Controller
 {
 
     public function __construct()
@@ -20,14 +20,14 @@ class VisitsmedicationsController extends Controller
     public function index()
     {
         //
-        $visitsmedications = DB::select('SELECT * FROM visitsmedications ORDER BY date_created DESC');
-        $count = DB::table('visitsmedications')->count();
+        $visitsprocedures = DB::select('SELECT * FROM visitsprocedures ORDER BY date_created DESC');
+        $count = DB::table('visitsprocedures')->count();
         $data = array(
-            'visitsmedications' => $visitsmedications,
+            'visitsprocedures' => $visitsprocedures,
             'count' => $count,
-            'title' => 'Visitsmedications'
+            'title' => 'Visitsprocedures'
         );
-        return view('visitsmedications/index')->with($data);
+        return view('visitsprocedures/index')->with($data);
     }
 
     /**
@@ -43,7 +43,7 @@ class VisitsmedicationsController extends Controller
             $data = array(
                 'title' => 'Create'
             );
-            return view('visitsmedications/new')->with($data);
+            return view('visitsprocedures/new')->with($data);
         } else {
             return redirect('/');
         }
@@ -62,18 +62,17 @@ class VisitsmedicationsController extends Controller
         if ($level === 1){
             $validatedData = $request->validate([
                 'visit_id' => 'required',
-                'medication_id' => 'required'
+                'procedure_id' => 'required'
             ]);
             $visit_id = $request->input('visit_id');
-            $medication_id = $request->input('medication_id');
-            DB::table('visitsmedications')->insert(
-                ['visit_id' => $visit_id,'medication_id' => $medication_id]
+            $procedure_id = $request->input('procedure_id');
+            DB::table('visitsprocedures')->insert(
+                ['visit_id' => $visit_id,'procedure_id' => $procedure_id]
             );
-            return redirect('/visitsmedications')->with('success', 'Visitmedication created.');
+            return redirect('/visitsprocedures')->with('success', 'Visitprocedure created.');
         } else {
             return redirect('/');
         }
-
     }
 
     /**
@@ -98,15 +97,15 @@ class VisitsmedicationsController extends Controller
         //
         $level = Auth::user()->level;
         if ($level === 1){
-            $visitmedication = DB::select('select * from visitsmedications where id = ?', array($id));
-            if (empty($visitmedication)) {
+            $visitprocedure = DB::select('select * from visitsprocedures where id = ?', array($id));
+            if (empty($visitprocedure)) {
                 return view('404');
             }
             $data = array(
                 'title' => 'Edit',
-                'visitmedication' => $visitmedication
+                'visitprocedure' => $visitprocedure
             );
-            return view('visitsmedications/edit')->with($data);
+            return view('visitsprocedures/edit')->with($data);
         } else {
             return redirect('/');
         }
@@ -124,25 +123,26 @@ class VisitsmedicationsController extends Controller
         //
         $level = Auth::user()->level;
         if ($level === 1){
-            $visitmedication = DB::select('select * from visitsmedications where id = ?', array($id));
-            if (empty($visitmedication)) {
+            $visitprocedure = DB::select('select * from visitsprocedures where id = ?', array($id));
+            if (empty($visitprocedure)) {
                 return view('404');
             } else {
                 $validatedData = $request->validate([
                     'visit_id' => 'required',
-                    'medication_id' => 'required'
+                    'procedure_id' => 'required'
                 ]);
                 $visit_id = $request->input('visit_id');
-                $medication_id = $request->input('medication_id');
-                DB::table('visitsmedications')
+                $procedure_id = $request->input('procedure_id');
+                DB::table('visitsprocedures')
                     ->where('id', $id)
-                    ->update(['visit_id' => $visit_id, 'medication_id' => $medication_id]);
-                return redirect('/visitsmedications')->with('success', 'Visitmedication edited.');
+                    ->update(['visit_id' => $visit_id, 'procedure_id' => $procedure_id]);
+                return redirect('/visitsprocedures')->with('success', 'Visitprocedure edited.');
 
             }
         } else {
             return redirect('/');
         }
+
     }
 
     /**
@@ -156,12 +156,12 @@ class VisitsmedicationsController extends Controller
         //
         $level = Auth::user()->level;
         if ($level === 1){
-            $visitmedication = DB::select('select * from visitsmedications where id = ?', array($id));
-            if (empty($visitmedication)) {
+            $visitprocedure = DB::select('select * from visitsprocedures where id = ?', array($id));
+            if (empty($visitprocedure)) {
                 return view('404');
             } else {
-                DB::table('visitsmedications')->where('id', '=', $id)->delete();
-                return redirect('/visitsmedications')->with('success', 'Visitmedication deleted.');
+                DB::table('visitsprocedures')->where('id', '=', $id)->delete();
+                return redirect('/visitsprocedures')->with('success', 'Visitprocedure deleted.');
             }
         } else {
             return redirect('/');
